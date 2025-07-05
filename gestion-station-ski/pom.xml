@@ -17,7 +17,10 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
-		<jacoco.version>0.8.11</jacoco.version> <!-- Added JaCoCo version -->
+		<jacoco.version>0.8.11</jacoco.version>
+		<sonar.host.url>http://192.168.254.128:9000</sonar.host.url>
+		<sonar.projectKey>DevOpsProject</sonar.projectKey>
+		<sonar.login>sqp_fac62e0333239a32b5b527d99ccb67104addd0a7</sonar.login>
 	</properties>
 
 	<dependencies>
@@ -125,6 +128,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 		</plugins>
 	</build>
 </project>
