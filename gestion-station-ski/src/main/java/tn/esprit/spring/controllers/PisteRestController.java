@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.spring.entities.Piste;
 import tn.esprit.spring.services.IPisteServices;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "\uD83C\uDFBF Piste Management")
@@ -19,7 +20,7 @@ public class PisteRestController {
 
     @Operation(description = "Add Piste")
     @PostMapping("/add")
-    public Piste addPiste(@RequestBody Piste piste){
+    public Piste addPiste(@Valid  @RequestBody Piste piste){
         return  pisteServices.addPiste(piste);
     }
     @Operation(description = "Retrieve all Pistes")
