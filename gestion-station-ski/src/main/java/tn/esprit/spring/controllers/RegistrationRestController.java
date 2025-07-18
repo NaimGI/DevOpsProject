@@ -4,12 +4,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.spring.entities.Instructor;
 import tn.esprit.spring.entities.Registration;
 import tn.esprit.spring.entities.Support;
-import tn.esprit.spring.entities.TypeSubscription;
 import tn.esprit.spring.services.IRegistrationServices;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "\uD83D\uDDD3️Registration Management")
@@ -21,7 +20,7 @@ public class RegistrationRestController {
 
     @Operation(description = "Add Registration and Assign to Skier")
     @PutMapping("/addAndAssignToSkier/{numSkieur}")
-    public Registration addAndAssignToSkier(@RequestBody Registration registration,
+    public Registration addAndAssignToSkier(@Valid  @RequestBody Registration registration,
                                                      @PathVariable("numSkieur") Long numSkieur)
     {
         return  registrationServices.addRegistrationAndAssignToSkier(registration,numSkieur);
@@ -36,7 +35,7 @@ public class RegistrationRestController {
 
     @Operation(description = "Add Registration and Assign to Skier and Course")
     @PutMapping("/addAndAssignToSkierAndCourse/{numSkieur}/{numCourse}")
-    public Registration addAndAssignToSkierAndCourse(@RequestBody Registration registration,
+    public Registration addAndAssignToSkierAndCourse(@Valid @RequestBody Registration registration,
                                                      @PathVariable("numSkieur") Long numSkieur,
                                                      @PathVariable("numCourse") Long numCourse)
     {

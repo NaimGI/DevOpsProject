@@ -8,6 +8,7 @@ import tn.esprit.spring.entities.Skier;
 import tn.esprit.spring.entities.TypeSubscription;
 import tn.esprit.spring.services.ISkierServices;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "\uD83C\uDFC2 Skier Management")
@@ -20,7 +21,7 @@ public class SkierRestController {
 
     @Operation(description = "Add Skier")
     @PostMapping("/add")
-    public Skier addSkier(@RequestBody Skier skier){
+    public Skier addSkier(@Valid  @RequestBody Skier skier){
         return  skierServices.addSkier(skier);
     }
 

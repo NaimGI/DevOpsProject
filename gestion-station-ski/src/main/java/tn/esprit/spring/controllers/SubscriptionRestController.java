@@ -8,6 +8,7 @@ import tn.esprit.spring.entities.Subscription;
 import tn.esprit.spring.entities.TypeSubscription;
 import tn.esprit.spring.services.ISubscriptionServices;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
@@ -22,7 +23,7 @@ public class SubscriptionRestController {
 
     @Operation(description = "Add Subscription ")
     @PostMapping("/add")
-    public Subscription addSubscription(@RequestBody Subscription subscription){
+    public Subscription addSubscription(@Valid  @RequestBody Subscription subscription){
         return  subscriptionServices.addSubscription(subscription);
     }
     @Operation(description = "Retrieve Subscription by Id")
@@ -38,7 +39,7 @@ public class SubscriptionRestController {
     }
     @Operation(description = "Update Subscription ")
     @PutMapping("/update")
-    public Subscription updateSubscription(@RequestBody Subscription subscription){
+    public Subscription updateSubscription(@Valid @RequestBody Subscription subscription){
         return  subscriptionServices.updateSubscription(subscription);
     }
     @Operation(description = "Retrieve Subscriptions created between two dates")

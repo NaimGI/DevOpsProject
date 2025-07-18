@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.spring.entities.Instructor;
 import tn.esprit.spring.services.IInstructorServices;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "\uD83D\uDC69\u200D\uD83C\uDFEB Instructor Management")
@@ -19,12 +20,12 @@ public class InstructorRestController {
 
     @Operation(description = "Add Instructor")
     @PostMapping("/add")
-    public Instructor addInstructor(@RequestBody Instructor instructor){
+    public Instructor addInstructor(@Valid @RequestBody Instructor instructor){
         return  instructorServices.addInstructor(instructor);
     }
     @Operation(description = "Add Instructor and Assign To Course")
     @PutMapping("/addAndAssignToCourse/{numCourse}")
-    public Instructor addAndAssignToInstructor(@RequestBody Instructor instructor, @PathVariable("numCourse")Long numCourse){
+    public Instructor addAndAssignToInstructor(@Valid @RequestBody Instructor instructor, @PathVariable("numCourse")Long numCourse){
         return  instructorServices.addInstructorAndAssignToCourse(instructor,numCourse);
     }
     @Operation(description = "Retrieve all Instructors")
@@ -35,7 +36,7 @@ public class InstructorRestController {
 
     @Operation(description = "Update Instructor ")
     @PutMapping("/update")
-    public Instructor updateInstructor(@RequestBody Instructor Instructor){
+    public Instructor updateInstructor(@Valid @RequestBody Instructor Instructor){
         return  instructorServices.updateInstructor(Instructor);
     }
 
